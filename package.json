@@ -1,0 +1,24 @@
+{
+  "name": "dordle",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "autoprefixer": "^9",
+    "debounced": "^0.0.5",
+    "postcss": "^7",
+    "sortablejs": "^1.14.0",
+    "stimulus": "^3.0.1",
+    "stimulus_reflex": "3.4.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "tailwindcss-stimulus-components": "^3.0.1",
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3"
+  }
+}

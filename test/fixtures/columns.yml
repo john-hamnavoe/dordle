@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  label: MyString
+  sortable: false
+  default_on: false
+  default_position: 1
+  field: MyString
+  object_1: MyString
+  object_2: MyString
+  grid: one
+
+two:
+  name: MyString
+  label: MyString
+  sortable: false
+  default_on: false
+  default_position: 1
+  field: MyString
+  object_1: MyString
+  object_2: MyString
+  grid: two
