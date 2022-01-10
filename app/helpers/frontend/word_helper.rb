@@ -11,7 +11,7 @@ module Frontend
         bg_class =   if word[letter_index] == guess[letter_index]
                        "bg-green-500"
                      elsif word.index(guess[letter_index]).present?
-                       "bg-yellow-500"
+                       set_amber_color(letter_index, word, guess)
                      else
                        "bg-gray-400"
                     end
@@ -28,6 +28,27 @@ module Frontend
     def display_key(id, letter, game, width = 10)
       bg_class = "bg-gray-400" if id.between?(1, 26) && game.invalid_letters.index(letter).present?
       button_tag letter, type: "button", class: "w-#{width} h-10 border-2 border-black #{bg_class}", disabled: false, data: { id: id, game_id: game.id, reflex: "click->Game#key_press" }
+    end
+
+    private
+
+    def set_amber_color(letter_index, word, guess)
+      color = "bg-yellow-500"
+      letter = guess[letter_index]
+      words = word.split("")
+      guesses = guess.split("")
+      occurrences = word.count(letter)
+
+      matches = 0
+      5.times do |i|
+        matches += 1 if letter == words[i] && letter == guesses[i]
+      end
+
+      guess_occurences = guess[0..letter_index].count(letter)
+
+      color = "bg-gray-400" if occurrences == matches || guess_occurences > occurrences
+
+      color
     end
   end
 end

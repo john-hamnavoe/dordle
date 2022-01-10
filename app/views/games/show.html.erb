@@ -1,4 +1,3 @@
-
 <div class="flex grid-cols-5 gap-0">
   <%= render "guess", word: @game.word.word, row_index: 1, guess: @game.guess[0], guess_index: @game.last_guess %>
 </div>
@@ -24,7 +23,7 @@
 <%if @game.winning_guess.present? %>
   <div class="bg-green-500"><p>Won</p></div>
 <%elsif @game.last_guess >= 6 %>
-  <div class="bg-red-500"><p>Lost</p></div>
+  <div class="bg-red-500"><p>Lost - <%= @game.word.word %></p></div>
 <% else %>
   <%= render "keyboard", game: @game%>
 <%end%>
