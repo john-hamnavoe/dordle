@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class GameReflex < ApplicationReflex
-
   def key_press
     game_id = element.dataset["game-id"].to_i
     key_id = element.dataset["id"].to_i
@@ -16,7 +15,7 @@ class GameReflex < ApplicationReflex
     end
   end
 
-  private 
+  private
 
   def update_guess(game, key_id)
     return if game.guess[game.last_guess]&.length == 5

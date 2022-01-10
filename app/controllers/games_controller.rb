@@ -23,6 +23,5 @@ class GamesController < ApplicationController
   end
 
   def update
-    set_flash_message(:notice, "messages.no_resource")
   end
 end
