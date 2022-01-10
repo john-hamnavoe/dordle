@@ -1,24 +1,39 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Game
 
-Things you may want to cover:
+Rails [Wordle](https://www.powerlanguage.co.uk/wordle/) clone.
 
-* Ruby version
+You can play it [here](https://immense-earth-67664.herokuapp.com/).
+Create an account.
 
-* System dependencies
+Press New Game. 
 
-* Configuration
+Same rules as wordle... 
+* 5 Letter word
+* 6 guesses 
+* green=correct 
+* amber=correct letter wrong spot 
+* grey = letter does not appear in word 
 
-* Database creation
+Words checked against those installed in the database. 
 
-* Database initialization
+# Tech
 
-* How to run the test suite
+* Ruby 2.7.0
 
-* Services (job queues, cache servers, search engines, etc.)
+* Rails 6.1
 
-* Deployment instructions
+* Stimulus Reflex 3.4
 
-* ...
+* Tailwind CSS
+
+* rails db:create
+
+* rails db:migrate
+
+* rails db:seed (install word)
+
+* rails s
+
+* As you can see on the link you can deploy on heroku. Need to use redis-to-go or equivalent.
