@@ -1,0 +1,40 @@
+
+<%= hover_table do %>
+  <%= table_head do %>
+    <%= table_row do %>
+      <%= table_column "Word" %>
+      <%= table_column "Guess 1", add_class: "hidden lg:visible" %>      
+      <%= table_column "Guess 2", add_class: "hidden lg:visible" %>
+      <%= table_column "Guess 3", add_class: "hidden lg:visible" %>
+      <%= table_column "Guess 4", add_class: "hidden lg:visible" %>
+      <%= table_column "Guess 5", add_class: "hidden lg:visible" %>      
+      <%= table_column "Guess 6", add_class: "hidden lg:visible" %>
+      <%= table_column "Guesses" %>  
+    <% end %>
+  <% end %>
+  <%= table_body do %>
+    <% games.each do |game| %>
+      <% add_class = if game.winning_guess.present? %>
+        <% "bg-green-300" %>
+      <%elsif game.last_guess >= 6 %>
+        <% "bg-red-300" %>
+      <% else %>
+        <% "" %>
+      <%end%>
+
+      <%= table_row id: dom_id(game), add_class: add_class do %>
+        <%= table_data  do %>
+          <% word = if game.winning_guess.present? || game.last_guess >= 6 then game.word.word else "XXXXX" end %>
+          <%= link_to word, game_path(game), class: "text-blue-900" %>
+        <% end %>
+        <%= table_data game.guess[0], add_class: "hidden lg:visible" %>
+        <%= table_data game.guess[1], add_class: "hidden lg:visible" %>
+        <%= table_data game.guess[2], add_class: "hidden lg:visible" %>
+        <%= table_data game.guess[3], add_class: "hidden lg:visible"  %>
+        <%= table_data game.guess[4], add_class: "hidden lg:visible" %>
+        <%= table_data game.guess[5], add_class: "hidden lg:visible" %>        
+        <%= table_data game.winning_guess || game.last_guess %>            
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

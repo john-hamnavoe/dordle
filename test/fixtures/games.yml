@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: one
+  user: one
+  guess1: MyString
+  guess2: MyString
+  guess3: MyString
+  guess4: MyString
+  guess5: MyString
+  guess6: MyString
+  winningguess: 1
+
+two:
+  word: two
+  user: two
+  guess1: MyString
+  guess2: MyString
+  guess3: MyString
+  guess4: MyString
+  guess5: MyString
+  guess6: MyString
+  winningguess: 1

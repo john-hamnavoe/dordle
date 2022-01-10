@@ -1,0 +1,30 @@
+
+<div class="flex grid-cols-5 gap-0">
+  <%= render "guess", word: @game.word.word, row_index: 1, guess: @game.guess[0], guess_index: @game.last_guess %>
+</div>
+<div class="flex grid-cols-5 gap-0">
+  <%= render "guess", word: @game.word.word, row_index: 2, guess: @game.guess[1], guess_index: @game.last_guess %>
+</div>
+<div class="flex grid-cols-5 gap-0">
+  <%= render "guess", word: @game.word.word, row_index: 3, guess: @game.guess[2], guess_index: @game.last_guess %>
+</div>
+<div class="flex grid-cols-5 gap-0">
+  <%= render "guess", word: @game.word.word, row_index: 4, guess: @game.guess[3], guess_index: @game.last_guess %>
+</div>
+<div class="flex grid-cols-5 gap-0">
+  <%= render "guess", word: @game.word.word, row_index: 5, guess: @game.guess[4], guess_index: @game.last_guess %>
+</div>
+<div class="flex grid-cols-5 gap-0">
+  <%= render "guess", word: @game.word.word, row_index: 6, guess: @game.guess[5], guess_index: @game.last_guess %>
+</div>
+<hr/>
+<%if @wrong_word == 1 %>
+  <div class="bg-yellow-500"><p>Word Not In List</p></div>
+<%end %>
+<%if @game.winning_guess.present? %>
+  <div class="bg-green-500"><p>Won</p></div>
+<%elsif @game.last_guess >= 6 %>
+  <div class="bg-red-500"><p>Lost</p></div>
+<% else %>
+  <%= render "keyboard", game: @game%>
+<%end%>

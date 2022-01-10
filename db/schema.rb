@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_135140) do
+ActiveRecord::Schema.define(version: 2022_01_09_140859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,19 @@ ActiveRecord::Schema.define(version: 2022_01_09_135140) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.bigint "word_id", null: false
+    t.bigint "user_id", null: false
+    t.string "guess", default: [], array: true
+    t.string "invalid_letters", default: ""
+    t.integer "winning_guess"
+    t.integer "last_guess", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
+    t.index ["word_id"], name: "index_games_on_word_id"
   end
 
   create_table "grid_view_columns", force: :cascade do |t|
@@ -180,11 +193,19 @@ ActiveRecord::Schema.define(version: 2022_01_09_135140) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "words", force: :cascade do |t|
+    t.string "word"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "columns", "grids"
   add_foreign_key "dashboard_metric_snapshots", "dashboard_metrics"
   add_foreign_key "dashboard_metric_snapshots", "organisations"
+  add_foreign_key "games", "users"
+  add_foreign_key "games", "words"
   add_foreign_key "grid_view_columns", "columns"
   add_foreign_key "grid_view_columns", "grid_views"
   add_foreign_key "grid_views", "grids"

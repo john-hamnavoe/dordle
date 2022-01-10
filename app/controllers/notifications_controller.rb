@@ -1,6 +1,5 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :user_in_organisation!
 
   def index
     # Convert the database records to Noticed notification instances so we can use helper methods

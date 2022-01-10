@@ -37,8 +37,8 @@ module Frontend
     end
 
     def table_data(value = nil, add_class: nil, colspan: nil, data: nil, title: nil, id: nil, nowrap: true, &block)
-      content_tag(:td, nil, nowrap: nowrap, colspan: colspan, data: data, title: title, class: "whitespace-nowrap", id: id) do
-        content_tag(:p, value, class: "py-1 px-1 text-sm text-left font-medium text-gray-800 tracking-normal #{add_class}", &block)
+      content_tag(:td, nil, nowrap: nowrap, colspan: colspan, data: data, title: title, class: "whitespace-nowrap #{add_class}", id: id) do
+        content_tag(:p, value, class: "py-1 px-1 text-sm text-left font-medium text-gray-800 tracking-normal", &block)
       end
     end
 
