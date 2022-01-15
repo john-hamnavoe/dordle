@@ -1,4 +1,3 @@
-SQL
 Word.create(word: 'ABUSE')
 Word.create(word: 'ADULT')
 Word.create(word: 'AGENT')
