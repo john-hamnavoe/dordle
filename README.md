@@ -4,7 +4,7 @@
 
 Rails [Wordle](https://www.nytimes.com/games/wordle/index.html) clone.
 
-You can play it [here](https://immense-earth-67664.herokuapp.com/).
+You can play it [here](https://6wzqk.hatchboxapp.com/).
 Create an account.
 
 Press New Game. 
