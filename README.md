@@ -2,7 +2,7 @@
 
 # Game
 
-Rails [Wordle](https://www.powerlanguage.co.uk/wordle/) clone.
+Rails [Wordle](https://www.nytimes.com/games/wordle/index.html) clone.
 
 You can play it [here](https://immense-earth-67664.herokuapp.com/).
 Create an account.
@@ -37,3 +37,7 @@ Words checked against those installed in the database.
 * rails s
 
 * As you can see on the link you can deploy on heroku. Need to use redis-to-go or equivalent.
+
+# Run Locally 
+
+```foreman start -f Procfile.dev```
